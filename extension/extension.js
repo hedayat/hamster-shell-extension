@@ -149,8 +149,8 @@ function Controller(extensionMeta) {
         disable: function() {
             Main.wm.removeKeybinding("show-hamster-dropdown");
 
-            global.log('Shutting down hamster-shell-extension.')
-            this._removeWidget(this.placement)
+            global.log('Shutting down hamster-shell-extension.');
+            this._removeWidget(this.placement);
             Main.panel.menuManager.removeMenu(this.panelWidget.menu);
             GLib.source_remove(this.panelWidget.timeout);
             this.panelWidget.actor.destroy();
@@ -184,7 +184,7 @@ function Controller(extensionMeta) {
                 // So unless can provide some insight here, this hack does the job.
                 let foo = function([activities]){return activities;};
                 return foo(activities);
-            };
+            }
 
             let result = getActivities(this);
             this.activities = result;
@@ -204,7 +204,7 @@ function Controller(extensionMeta) {
                 Main.panel._addToPanelBox('dateMenu', dateMenu, -1, Main.panel._rightBox);
             } else if (placement == 2) {
                 // 'Replace activities'
-                let activitiesMenu = Main.panel._leftBox.get_children()[0].get_children()[0].get_children()[0].get_children()[0]
+                let activitiesMenu = Main.panel._leftBox.get_children()[0].get_children()[0].get_children()[0].get_children()[0];
                 // If our widget replaces the 'Activities' menu in the panel,
                 // this property stores the original text so we can restore it
                 // on ``this.disable``.
@@ -214,7 +214,7 @@ function Controller(extensionMeta) {
             } else {
                 // 'Default'
                 Main.panel.addToStatusArea("hamster", this.panelWidget, 0, "right");
-            };
+            }
         },
 
         _removeWidget: function(placement) {
@@ -229,12 +229,12 @@ function Controller(extensionMeta) {
                 );
             } else if (placement == 2) {
                 // We replaced the 'Activities' menu
-                let activitiesMenu = Main.panel._leftBox.get_children()[0].get_children()[0].get_children()[0].get_children()[0]
+                let activitiesMenu = Main.panel._leftBox.get_children()[0].get_children()[0].get_children()[0].get_children()[0];
                 activitiesMenu.set_text(this._activitiesText);
-            };
+            }
         },
     };
-};
+}
 
 
 function init(extensionMeta) {
