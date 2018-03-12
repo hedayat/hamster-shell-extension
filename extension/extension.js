@@ -33,6 +33,10 @@ const Me = ExtensionUtils.getCurrentExtension();
 const Convenience = Me.imports.convenience;
 const PanelWidget = Me.imports.widgets.panelWidget.PanelWidget;
 
+const Gettext = imports.gettext('hamster-shell-extension');
+const _ = Gettext.gettext;
+
+
 // dbus-send --session --type=method_call --print-reply --dest=org.gnome.Hamster /org/gnome/Hamster org.freedesktop.DBus.Introspectable.Introspect
 const ApiProxyIface = '<node> \
 <interface name="org.gnome.Hamster"> \
